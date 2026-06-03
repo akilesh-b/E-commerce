@@ -4,7 +4,7 @@ import cors from "cors";
 import testRoutes from "./routes/testRoutes.js";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
-
+import adminRoutes from "./routes/adminRoutes.js";
 dotenv.config();
 
 connectDB();
@@ -15,6 +15,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/test", testRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
+
+
+
 app.get("/", (req, res) => {
   res.send("API Running...");
 });
